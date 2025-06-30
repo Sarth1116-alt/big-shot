@@ -1,0 +1,370 @@
+/* Global Styles */
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: 'Orbitron', sans-serif;
+  background-color: #111;
+  color: #fff;
+  
+}
+
+/* Game Container */
+.game-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  border: 10px solid #228B22; /* Change to green or any color you like */
+  border-radius: 20px;
+  padding: 20px;
+  background-color: #111;
+  box-shadow: 0 0 20px #00ff00; /* Optional glow */
+  margin: 20px auto;
+  max-width: 1200px;
+}
+
+/* Header */
+.header-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 90%;
+  max-width: 900px;
+  margin-bottom: 10px;
+}
+
+.title {
+  font-size: 32px;
+  font-weight: bold;
+  background: yellow;
+  padding: 8px 20px;
+  border-radius: 10px;
+  color: #111;
+  box-shadow: 0 0 10px #ff0, 0 0 20px #ff0;
+}
+
+.digital {
+  font-family: 'Courier New', Courier, monospace;
+  background-color: black;
+  color: red;
+  padding: 5px 10px;
+  border: 2px solid red;
+  border-radius: 6px;
+  box-shadow: 0 0 8px red;
+}
+
+/* Grid Display */
+.grid-values {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: 15px;
+}
+
+.grid-row {
+  display: flex;
+  gap: 6px;
+}
+
+.grid-cell {
+  background: #000;
+  color: #0f0;
+  padding: 5px 10px;
+  border: 1px solid #0f0;
+  border-radius: 4px;
+  font-size: 14px;
+  box-shadow: 0 0 6px #0f0;
+}
+
+/* Highlight blinking yellow */
+.grid-highlight.blink {
+  background-color: #e1e117; /* light yellow */
+  color: black;
+  border: 2px solid #dede0d;
+  animation: blink 1s infinite;
+  box-shadow: 0 0 10px #dfdf0e, 0 0 20px #c6c60d;
+}
+
+/* Blink animation */
+@keyframes blink {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.4;
+  }
+}
+
+/* Credit and Withdraw */
+.credit-withdraw {
+  display: flex;
+  justify-content: space-between;
+  width: 90%;
+  max-width: 900px;
+  margin-bottom: 20px;
+}
+
+.credit-panel, .withdraw-panel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+button {
+  margin-top: 5px;
+  padding: 6px 14px;
+  background: yellow;
+  border: none;
+  border-radius: 6px;
+  color: black;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+button:hover {
+  background: orange;
+}
+
+/* Game Area */
+.game-area {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  margin-bottom: 20px;
+}
+
+/* Selector Lights */
+.selector-lights {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.selector-digit {
+  width: 30px;
+  height: 30px;
+  background: #222;
+  color: #fff;
+  border: 2px solid #555;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-weight: bold;
+}
+
+.selector-digit.active {
+  background: yellow;
+  color: black;
+  box-shadow: 0 0 8px yellow;
+  font-weight: bold;
+  animation: blink 0.5s ease-in-out infinite alternate;
+}
+
+/* Circle Area */
+.circle-area {
+  position: relative;
+  width: 250px;
+  height: 250px;
+}
+
+.outer-circle {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: #333;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.inner-circle {
+  position: absolute;
+  width: 200px; /* smaller than outer */
+  height: 200px;
+  border-radius: 50%;
+  background: #666;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.outer-circle {
+  width: 250px;
+  height: 250px;
+}
+
+.inner-circle {
+  width: 150px;
+  height: 150px;
+}
+
+.circle-number {
+  position: absolute;
+  width: 36px;
+  height: 36px;
+  background-color: #333;
+  border-radius: 50%;
+  color: white;
+  font-weight: bold;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #fff;
+}
+
+.outer-circle .circle-number:nth-child(n) {
+  transform: rotate(calc(45deg * var(--i))) translate(110px) rotate(calc(-45deg * var(--i)));
+}
+.inner-circle .circle-number:nth-child(n) {
+  transform: rotate(calc(45deg * var(--i))) translate(65px) rotate(calc(-45deg * var(--i)));
+}
+
+.circle-number:nth-child(1) { --i: 0; }
+.circle-number:nth-child(2) { --i: 1; }
+.circle-number:nth-child(3) { --i: 2; }
+.circle-number:nth-child(4) { --i: 3; }
+.circle-number:nth-child(5) { --i: 4; }
+.circle-number:nth-child(6) { --i: 5; }
+.circle-number:nth-child(7) { --i: 6; }
+.circle-number:nth-child(8) { --i: 7; }
+
+.circle-number.active {
+  background-color: red;
+  color: white;
+  box-shadow: 0 0 12px rgb(240, 225, 9), 0 0 20px rgb(240, 225, 9);
+  animation: glowRed 0.8s ease-in-out infinite alternate;
+}
+
+/* Bet Section */
+.bet-section {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin: 20px 0;
+}
+
+.bet-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+}
+
+.bet-button {
+  width: 40px;
+  height: 40px;
+  background-color: red;
+  color: white;
+  border-radius: 50%;
+  font-weight: bold;
+  border: 2px solid white;
+  box-shadow: 0 0 5px red;
+}
+
+.bet-label {
+  font-size: 14px;
+}
+
+/* Start Button */
+.start-section {
+  margin-top: 20px;
+}
+
+.start-btn {
+  padding: 12px 24px;
+  font-size: 18px;
+  background: red;
+  border-radius: 50px;
+  color: white;
+  font-weight: bold;
+  border: none;
+  box-shadow: 0 0 10px red, 0 0 20px red;
+  transition: all 0.3s;
+}
+
+.start-btn:hover {
+  background: darkred;
+  box-shadow: 0 0 15px red, 0 0 30px red;
+}
+
+/* Animations */
+@keyframes pulse {
+  from { transform: scale(1); }
+  to { transform: scale(1.2); }
+}
+
+@keyframes blink {
+  0% { opacity: 1; }
+  100% { opacity: 0.3; }
+}
+
+@keyframes flash-green {
+  0% { background: #0f0; color: black; }
+  100% { background: black; color: #0f0; }
+}
+
+@keyframes glowRed {
+  0% {
+    box-shadow: 0 0 10px rgb(240, 225, 9), 0 0 20px rgb(240, 225, 9);
+  }
+  100% {
+    box-shadow: 0 0 20px rgb(240, 225, 9), 0 0 30px rgb(240, 225, 9);
+  }
+}
+
+/* ✅ Updated Freeplay Block Section */
+.left-panel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.freeplay-display {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  align-items: center;
+}
+
+/* ✅ Final Small Digital Box Style */
+.small-digital-box {
+  font-size: 11px;
+  padding: 3px 8px;
+  border: 2px solid red;
+  background: black;
+  color: red;
+  text-align: center;
+  width: 60px;
+  height: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 4px red;
+  border-radius: 3px;
+}
+.credit-dimmed {
+  opacity: 0.4;
+  filter: grayscale(100%);
+  transition: 0.3s ease-in-out;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+.blink {
+  animation: blink 1s infinite;
+}
+
+.grid-highlight {
+  background: yellow;
+  color: black;
+  font-weight: bold;
+  box-shadow: 0 0 10px yellow;
+}
+
