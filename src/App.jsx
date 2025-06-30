@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import FrontPage from './FrontPage';
-import LoginPage from './Pages/LoginPage';
+import LoginPage from './pages/LoginPage';
 
 import Master from './pages/Master';
 
@@ -16,3 +16,4 @@ const App = () => (
 );
 
 export default App;
+  
